@@ -264,6 +264,61 @@ section[id]{scroll-margin-top:60px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
 
 @media (min-width:481px){.fv__ttl{margin-right:70px}}
+
+/* ========== PC：両脇レール（家具のソムリエBF型） ========== */
+.side{display:none}
+@media (min-width:1180px){
+  body{background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,0) 0 30%,rgba(120,8,4,.35) 100%),
+    repeating-conic-gradient(from 0deg at 50% 50%,#d8231b 0 6deg,#cc1f17 6deg 12deg) fixed;
+    background-attachment:fixed}
+  .page{position:relative;z-index:3;box-shadow:0 0 0 6px var(--ink),0 0 60px rgba(0,0,0,.35)}
+  .side{display:flex;overflow-y:auto;scrollbar-width:none;position:fixed;top:0;bottom:0;width:calc(50% - var(--col)/2);align-items:center;justify-content:center;padding:24px 28px;color:#fff;z-index:2}
+  .side-l{left:0}.side-r{right:0}
+  .side-in{width:100%;max-width:260px;text-align:center}
+  .side .confetti{z-index:-1}
+  .side__logo{display:inline-block;padding:8px 14px;background:#fff;border-radius:8px}
+  .side__logo img{height:22px;width:auto}
+  .side__pre{display:inline-block;margin-top:14px;padding:3px 12px 4px;background:var(--ink);font-family:var(--heavy);font-size:18px;line-height:1.3}
+  .side__pre b{font-family:var(--num);font-weight:700;color:var(--gold);font-size:1.3em}
+  .side__ttl{margin-top:6px;font-family:var(--heavy);font-weight:400;line-height:1.05;text-shadow:3px 3px 0 var(--ink)}
+  .side__ttl span{display:block;font-size:clamp(34px,3vw,44px);white-space:nowrap}
+  .side__ttl span+span{color:var(--gold)}
+  .side__date{margin-top:10px;padding:8px 0;border-top:2px solid rgba(255,255,255,.5);border-bottom:2px solid rgba(255,255,255,.5);font-weight:900;font-size:15px;line-height:1.5}
+  .side__date b{font-family:var(--num);font-weight:600;font-size:20px}
+  .guide{margin-top:14px;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:10px;padding:4px 14px;box-shadow:5px 5px 0 var(--ink);text-align:left}
+  .guide a{display:flex;gap:10px;align-items:center;padding:8px 0;font-size:15px;font-weight:900;line-height:1.35;border-bottom:1px dashed var(--line);transition:padding .2s,color .2s}
+  .guide a:last-child{border-bottom:0}
+  .guide a:hover{padding-left:6px;color:var(--red)}
+  .guide a span{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--num);font-weight:700;font-size:16px}
+  .guide a.g2 span{background:var(--ink);font-size:14px}
+  .side-r__ttl{display:inline-block;padding:4px 14px;background:var(--ink);font-weight:900;font-size:17px;letter-spacing:.06em}
+  .cand{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+  .cand a{position:relative;display:block;padding:12px 6px 10px;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:10px;box-shadow:4px 4px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+  .cand a:hover{transform:translate(-2px,-3px);box-shadow:6px 7px 0 var(--ink)}
+  .cand .ph--face{width:72px;margin:0 auto;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--red)}
+  .cand .ph--face::after{font-size:14px;bottom:8%}
+  .cand b{position:absolute;left:-8px;top:-10px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--num);font-weight:700;font-size:20px;box-shadow:0 0 0 2px #fff}
+  .cand .nm{display:block;margin-top:8px;font-weight:900;font-size:15px;line-height:1.3}
+  .cand .pr{display:block;font-family:var(--num);font-weight:600;font-size:24px;line-height:1.2;color:var(--red)}
+  .cand .pr small{font-family:var(--goth);font-weight:900;font-size:14px}
+  .side-gift{display:block;margin-top:14px;padding:12px 10px 12px;background:var(--ink);border-radius:10px;box-shadow:0 0 0 3px var(--gold) inset;transition:transform .2s}
+  .side-gift:hover{transform:translateY(-3px)}
+  .side-gift small{display:block;font-weight:900;font-size:15px;line-height:1.4}
+  .side-gift .off{display:flex;justify-content:center;font-size:54px;margin:4px 0 0;color:var(--gold)}
+  .side-gift .go{display:inline-block;margin-top:6px;padding:5px 16px;border-radius:999px;background:var(--gold);color:var(--ink);font-weight:900;font-size:14px}
+}
+@media (min-width:1180px) and (max-width:1320px){
+  .side{padding:20px 14px}
+  .cand .ph--face{width:60px}
+  .cand .pr{font-size:21px}
+}
+@media (min-width:1180px) and (max-height:820px){
+  .guide a{padding:6px 0}
+  .cand .ph--face{width:58px}
+  .side-gift .off{font-size:46px}
+}
+
 /* ---------- スマホ ---------- */
 @media (max-width:480px){
   body{font-size:16px}
@@ -310,6 +365,45 @@ section[id]{scroll-margin-top:60px}
 </style>
 </head>
 <body>
+<!-- ===== PC 左レール：ページ内メニュー ===== -->
+<aside class="side side-l" aria-label="ページ内メニュー">
+  <span class="confetti" aria-hidden="true"></span>
+  <div class="side-in">
+    <a class="side__logo" href="https://www.rakuten.co.jp/kawasui/"><img src="images/logo-kawasui.png" alt="うなぎ屋かわすい" width="960" height="160"></a>
+    <p><span class="side__pre">スタッフ<b>4</b>名による</span></p>
+    <p class="side__ttl"><span>幸せ福袋</span><span>総選挙！</span></p>
+    <p class="side__date">開催期間<br><b>20XX.XX.XX</b> 〜 <b>XX.XX</b></p>
+    <nav class="guide">
+      <a href="#list"><span>4</span>4つの福袋を見る</a>
+      <a href="#bag-a"><span>A</span>時短で楽ちん福袋</a>
+      <a href="#bag-b"><span>B</span>うなぎ七変化福袋</a>
+      <a href="#bag-c"><span>C</span>1週間の主役福袋</a>
+      <a href="#bag-d"><span>D</span>おすすめボリューム福袋</a>
+      <a class="g2" href="#vote"><span>票</span>購入がそのまま一票に</a>
+      <a class="g2" href="#gift"><span>賞</span>抽選で5,000円OFF</a>
+    </nav>
+  </div>
+</aside>
+
+<!-- ===== PC 右レール：候補者4名（写真）と抽選 ===== -->
+<aside class="side side-r" aria-label="エントリー4名と抽選">
+  <span class="confetti" aria-hidden="true"></span>
+  <div class="side-in">
+    <p class="side-r__ttl">エントリー4名</p>
+    <div class="cand">
+      <a href="#bag-a"><b>A</b><div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div><span class="nm">雑賀<br>時短で楽ちん</span><span class="pr">6,980<small>円</small></span></a>
+      <a href="#bag-b"><b>B</b><div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div><span class="nm">山本<br>うなぎ七変化</span><span class="pr">11,500<small>円</small></span></a>
+      <a href="#bag-c"><b>C</b><div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div><span class="nm">江川<br>1週間の主役</span><span class="pr">12,960<small>円</small></span></a>
+      <a href="#bag-d"><b>D</b><div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div><span class="nm">小林<br>ボリューム</span><span class="pr">16,000<small>円</small></span></a>
+    </div>
+    <a class="side-gift" href="#gift">
+      <small>No.1福袋の購入者から<br>抽選5名様に</small>
+      <span class="off"><b>5,000</b><span class="off__u"><i class="y">円</i><i class="o">OFF</i></span></span>
+      <span class="go">くわしく見る</span>
+    </a>
+  </div>
+</aside>
+
 <div class="page">
 
   <header class="hd">
