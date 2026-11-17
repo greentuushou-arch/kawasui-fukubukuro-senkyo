@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>スタッフ4名による 幸せ福袋総選挙｜うなぎ屋かわすい</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Dela+Gothic+One&family=Klee+One:wght@600&family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   かわすい 幸せ福袋総選挙（企画書ラフの白×赤×黒・手書き感をベースに）
+   写真はすべて仮置き（.ph）。撮影後に <img> へ差し替える
+   ========================================================= */
+:root{
+  --red:#d8231b;
+  --red-d:#a9170f;
+  --ink:#1b1b1b;
+  --sub:#4a4440;
+  --paper:#fbfaf6;
+  --cream:#f3eee4;
+  --line:#e2dbcf;
+  --goth:"Noto Sans JP","Hiragino Sans",sans-serif;
+  --heavy:"Dela Gothic One","Noto Sans JP",sans-serif;
+  --hand:"Klee One","Noto Sans JP",sans-serif;
+  --num:"Jost","Noto Sans JP",sans-serif;
+  --col:640px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:#ece6db;color:var(--ink);font-family:var(--goth);font-weight:500;font-size:17px;line-height:1.75;letter-spacing:.03em;overflow-x:hidden}
+h1,h2,h3,.lead,.bubble,.ways-ttl,.ways li p,.ways li small,.week li,.inbox li,.term__s,.list .lt span,.bag__catch,.vote__txt,.aim__txt,.gift__note{word-break:auto-phrase}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.page{max-width:var(--col);margin:0 auto;background:var(--paper);overflow:clip;box-shadow:0 0 50px rgba(60,40,20,.12)}
+.nw{white-space:nowrap}
+section[id]{scroll-margin-top:60px}
+
+/* 手描き風の赤い下線 */
+.uline{position:relative;display:inline-block;z-index:0}
+.uline::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-.08em;height:.32em;z-index:-1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M3 13 C 70 5, 150 17, 297 7' fill='none' stroke='%23d8231b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+
+/* ---------- 写真の仮置き ---------- */
+.ph{position:relative;display:grid;place-items:center;text-align:center;background:repeating-linear-gradient(-45deg,#f1ebe0 0 10px,#ebe4d7 10px 20px);border:2px dashed #c8bba6;color:#8a7c68;font-weight:700;font-size:15px;line-height:1.5}
+.ph small{display:block;font-size:14px;font-weight:500}
+.ph--face{border-radius:50%;aspect-ratio:1;overflow:hidden;background:#efe9de}
+.ph--face svg{width:62%;height:auto;margin-top:18%;fill:#cfc3b0}
+.ph--face::after{content:"写真";position:absolute;left:0;right:0;bottom:12%;font-size:14px;color:#8a7c68}
+.ph--item{aspect-ratio:4/3;border-radius:6px}
+
+/* ---------- ヘッダー ---------- */
+.hd{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line);background:#fff}
+.hd img{height:24px;width:auto}
+.hd p{font-family:var(--hand);font-size:15px;color:var(--sub);white-space:nowrap}
+
+/* ---------- FV ---------- */
+.fv{position:relative;padding:34px 20px 0;text-align:center;background:
+  radial-gradient(circle at 50% 38%,rgba(216,35,27,.08),transparent 60%),var(--paper)}
+.fv__pre{font-family:var(--heavy);font-size:44px;line-height:1.1;letter-spacing:.02em;transform:rotate(-3deg)}
+.fv__pre b{font-family:var(--num);font-weight:700;font-size:1.45em;color:var(--red);margin:0 .03em;vertical-align:-.06em}
+.fv__ttl{margin-top:4px;font-family:var(--heavy);font-weight:400;line-height:1.02;transform:rotate(-3deg)}
+.fv__ttl .r{display:block;font-size:108px;color:var(--red);letter-spacing:-.02em}
+.fv__ttl .k{display:block;font-size:104px;letter-spacing:-.03em}
+.fv__stamp{position:absolute;right:10px;top:228px;display:grid;place-items:center;width:124px;height:124px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--hand);font-size:17px;line-height:1.35;transform:rotate(8deg);animation:pop 3.2s ease-in-out infinite}
+.fv__stamp b{font-family:var(--num);font-weight:700;font-size:32px;line-height:1}
+@keyframes pop{0%,100%{transform:rotate(8deg) scale(1)}50%{transform:rotate(4deg) scale(1.06)}}
+.fv__q{margin-top:30px;font-family:var(--hand);font-size:30px;line-height:1.6;text-align:center}
+.fv__q2{margin-top:6px;font-family:var(--hand);font-size:22px;color:var(--sub)}
+.think{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 14px;margin-top:22px;padding-bottom:30px}
+.think li{display:flex;flex-direction:column;align-items:center}
+.think .bubble{position:relative;min-height:104px;display:grid;place-items:center;width:100%;padding:10px 8px;margin-bottom:14px;background:#fff;border:2px solid var(--ink);border-radius:18px;font-family:var(--hand);font-size:17px;line-height:1.45}
+.think .bubble::after{content:"";position:absolute;left:50%;bottom:-11px;width:18px;height:18px;margin-left:-9px;background:#fff;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}
+.think .ph--face{width:118px}
+.think .who{margin-top:8px;font-weight:900;font-size:19px;line-height:1.3}
+.think .who small{display:block;font-weight:700;font-size:14px;color:var(--sub)}
+.think .who b{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:6px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--num);font-size:17px;vertical-align:2px}
+
+/* ---------- 開催期間の帯 ---------- */
+.term{background:var(--red);color:#fff;text-align:center;padding:18px 16px 20px}
+.term__l{display:inline-block;padding:3px 16px;border:2px solid #fff;font-weight:900;font-size:16px;letter-spacing:.1em}
+.term__d{margin-top:6px;font-weight:900;font-size:30px;line-height:1.3}
+.term__s{margin-top:2px;font-size:16px;font-weight:700}
+
+/* ---------- 4つの福袋（一覧） ---------- */
+.sec{padding:44px 20px 44px;text-align:center}
+.h2{font-family:var(--hand);font-weight:600;font-size:34px;line-height:1.45}
+.h2 b{font-family:var(--num);font-weight:600;font-size:1.3em;color:var(--red)}
+.lead{margin-top:10px;font-size:17px;color:var(--sub)}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px;margin-top:24px;text-align:center}
+.list a{display:block;transition:transform .2s}
+.list a:hover{transform:translateY(-4px)}
+.list .ph--item{aspect-ratio:1}
+.list .lt{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:10px}
+.list .lt b{font-family:var(--num);font-weight:700;font-size:40px;line-height:.9;color:var(--red)}
+.list .lt span{font-weight:900;font-size:18px;line-height:1.35}
+.list .by{display:block;margin-top:4px;font-size:15px;font-weight:700;color:var(--sub)}
+.list .pr{display:block;margin-top:2px;font-family:var(--num);font-weight:600;font-size:30px;line-height:1.2;color:var(--red)}
+.list .pr small{font-family:var(--goth);font-weight:900;font-size:16px}
+
+/* ---------- 福袋の詳細 ---------- */
+.bag{padding:46px 20px 44px;border-top:6px solid var(--ink)}
+.bag:nth-of-type(even){background:#fff}
+.bag__head{display:flex;align-items:center;justify-content:center;gap:16px}
+.bag__letter{font-family:var(--num);font-weight:700;font-size:96px;line-height:.8;color:var(--red)}
+.bag__ttl{font-family:var(--heavy);font-weight:400;font-size:32px;line-height:1.3;text-align:left}
+.bag__catch{margin-top:16px;text-align:center;font-family:var(--hand);font-size:24px;line-height:1.55}
+.bag__img{margin-top:20px}
+.bag__body{margin-top:22px;text-align:center}
+.inbox{position:relative;padding:22px 18px 18px;border:2px solid var(--ink);background:#fff}
+.inbox__l{position:absolute;left:50%;top:-15px;transform:translateX(-50%);padding:2px 16px;background:var(--ink);color:#fff;font-weight:900;font-size:16px;letter-spacing:.12em;white-space:nowrap}
+.inbox li{padding:7px 0;border-bottom:1px dashed var(--line);font-weight:700;font-size:17px;line-height:1.5}
+.inbox li:last-child{border-bottom:0}
+.price{margin-top:22px}
+.price__was{font-weight:900;font-size:19px;color:var(--sub)}
+.price__was b{font-family:var(--num);font-weight:600;font-size:1.35em;margin:0 .05em}
+.price__now{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:2px;color:var(--red);line-height:1}
+.price__now i{font-style:normal;display:grid;place-items:center;width:66px;height:66px;border-radius:50%;background:var(--red);color:#fff;font-weight:900;font-size:16px;line-height:1.25}
+.price__now b{font-family:var(--num);font-weight:600;font-size:84px;letter-spacing:-.02em}
+.price__now small{font-weight:900;font-size:30px;margin-left:-4px}
+.price__tax{margin-top:4px;font-size:15px;font-weight:700;color:var(--sub)}
+.voice{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:26px}
+.voice .ph--face{width:120px;flex:none}
+.voice__by{font-weight:900;font-size:18px;line-height:1.35}
+.voice__by small{display:block;font-weight:700;font-size:14px;color:var(--sub)}
+.voice__txt{position:relative;padding:20px 18px;background:var(--cream);border-radius:14px;font-size:17px;line-height:1.85;text-align:center}
+.voice__txt::before{content:"";position:absolute;left:50%;top:-12px;margin-left:-12px;border:12px solid transparent;border-bottom-color:var(--cream);border-top:0}
+.bag:nth-of-type(odd) .voice__txt{background:#fff}
+.bag:nth-of-type(odd) .voice__txt::before{border-bottom-color:#fff}
+.voice__txt q{display:block;font-family:var(--hand);font-size:20px;line-height:1.6;text-align:center;margin-bottom:8px;quotes:none}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;padding:19px 20px;background:var(--red);color:#fff;border-radius:999px;font-weight:900;font-size:20px;letter-spacing:.06em;box-shadow:0 5px 0 var(--red-d);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--red-d)}
+.btn::after{content:"";width:9px;height:9px;border-top:3px solid #fff;border-right:3px solid #fff;transform:rotate(45deg)}
+.btn--ink{background:var(--ink);box-shadow:0 5px 0 #000}
+.btn small{font-size:15px;font-weight:700;opacity:.85}
+
+/* 山本：推し食べ方 */
+.ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}
+.ways li{padding:14px 10px 12px;border:2px solid var(--ink);border-radius:10px;background:#fff;text-align:center}
+.ways li b{display:inline-block;padding:1px 12px;background:var(--ink);color:#fff;font-size:15px;letter-spacing:.06em}
+.ways li p{margin-top:8px;font-weight:900;font-size:18px;line-height:1.4}
+.ways li small{display:block;margin-top:4px;font-size:14px;line-height:1.5;color:var(--sub)}
+.ways li.oshi{border-color:var(--red);background:#fff4f2}
+.ways li.oshi b{background:var(--red)}
+.ways-ttl{margin-top:26px;font-family:var(--hand);font-size:22px}
+
+/* 江川：1週間のごはん例 */
+.week{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}
+.week li{padding:12px 6px;border-radius:10px;background:#fff;border:2px solid var(--ink);font-weight:900;font-size:16px;line-height:1.45}
+.week li b{display:block;font-family:var(--hand);font-weight:600;font-size:15px;color:var(--red)}
+
+/* ---------- 購入が一票に ---------- */
+.vote{background:var(--cream)}
+.box{position:relative;width:260px;height:230px;margin:26px auto 0}
+.box__card{position:absolute;left:50%;top:0;width:86px;height:112px;margin-left:-43px;background:var(--red);border-radius:4px;color:#fff;display:grid;place-items:center;font-family:var(--hand);font-size:17px;line-height:1.3;transform:translateY(-10px) rotate(-6deg);opacity:0}
+.box.is-in .box__card{animation:drop 2.6s cubic-bezier(.5,0,.4,1) .2s infinite}
+@keyframes drop{0%{opacity:0;transform:translateY(-30px) rotate(-6deg)}15%{opacity:1}55%{transform:translateY(86px) rotate(0)}70%,100%{opacity:1;transform:translateY(86px) rotate(0)}}
+.box svg{position:absolute;left:0;bottom:0;width:100%;height:auto}
+.vote__txt{margin-top:20px;font-size:17px;line-height:1.85}
+.vote__txt b{color:var(--red)}
+.board{margin-top:28px;padding:20px 16px 18px;background:var(--ink);color:#fff;border-radius:12px}
+.board__l{font-weight:900;font-size:20px;letter-spacing:.06em}
+.board__s{font-size:15px;color:#d9d2c6}
+.board ol{display:grid;gap:8px;margin-top:14px}
+.board li{display:flex;align-items:center;gap:14px;padding:10px 16px;background:#2c2a28;border-radius:8px;text-align:left}
+.board li b{font-family:var(--num);font-weight:700;font-size:30px;line-height:1;color:#f1c84b;min-width:58px}
+.board li b small{font-family:var(--goth);font-size:16px}
+.board li span{font-weight:900;font-size:18px;color:#bdb5a8}
+
+/* ---------- おまけの抽選 ---------- */
+.gift{position:relative;padding:44px 20px 40px;text-align:center}
+.gift__pre{font-family:var(--hand);font-size:30px;line-height:1.5}
+.gift__card{margin-top:20px;padding:24px 18px 22px;border:3px solid var(--red);border-radius:14px;background:#fff}
+.gift__card p{font-weight:900;font-size:19px;line-height:1.6}
+.gift__card .n{font-family:var(--num);font-weight:600;font-size:1.7em;color:var(--red);margin:0 .04em}
+.gift__off{margin-top:8px;color:var(--red)}
+.gift__off .l{display:block;font-weight:900;font-size:22px;color:var(--ink)}
+.off{display:inline-flex;align-items:center;line-height:1;white-space:nowrap;font-size:96px}
+.off>b{font-family:var(--num);font-weight:600;font-size:1em;line-height:.8;letter-spacing:-.02em}
+.off__u{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.04em;margin-left:.05em}
+.off__u i{font-style:normal;display:block;line-height:.9}
+.off__u .y{font-family:var(--goth);font-weight:900;font-size:.5em;line-height:1}
+.off__u .o{font-family:var(--num);font-weight:700;font-size:.4em;letter-spacing:.02em}
+.gift__off .cp{display:block;margin-top:4px;font-weight:900;font-size:30px;color:var(--ink)}
+.gift__note{margin-top:14px;font-size:15px;line-height:1.7;color:var(--sub)}
+
+/* ---------- 目指すこと ---------- */
+.aim{padding:40px 20px 44px;background:#fff;text-align:center;border-top:1px solid var(--line)}
+.aim__ttl{font-weight:900;font-size:24px}
+.aim__txt{margin-top:12px;font-size:17px;line-height:1.9}
+.aim__txt>span,.vote__txt>span{display:block}
+.aim__txt>span+span{margin-top:6px}
+.aim__txt b{background:linear-gradient(transparent 62%,#ffd9d4 62%)}
+.foot{padding:28px 20px 36px;text-align:center;background:var(--paper);border-top:1px solid var(--line)}
+.foot img{height:26px;width:auto;margin:0 auto}
+.foot p{margin-top:8px;font-family:var(--hand);font-size:15px;color:var(--sub)}
+
+/* ---------- スマホ ---------- */
+@media (max-width:480px){
+  body{font-size:16px}
+  .fv{padding-top:26px}
+  .fv__pre{font-size:9.4vw}
+  .fv__ttl .r{font-size:22.5vw}
+  .fv__ttl .k{font-size:21.5vw}
+  .fv__stamp{top:auto;bottom:auto;position:relative;right:auto;margin:16px auto 0;width:124px;height:124px;font-size:16px}
+  .fv__stamp b{font-size:28px}
+  .fv__q{font-size:6.6vw}
+  .fv__q2{font-size:19px}
+  .think .bubble{font-size:16px;min-height:78px;padding:10px 6px}
+  .think .ph--face{width:104px}
+  .term__d{font-size:21px;white-space:nowrap}
+  .term__s{font-size:15px}
+  .hd{padding:12px 14px}
+  .hd img{height:20px}
+  .hd p{font-size:14px}
+  .fv__stamp{width:120px;height:120px;font-size:15px;line-height:1.3}
+  .think{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px}
+  .h2{font-size:7.4vw}
+  .list .lt b{font-size:34px}
+  .list .lt span{font-size:16px}
+  .list .pr{font-size:27px}
+  .bag__letter{font-size:80px}
+  .bag__ttl{font-size:6.6vw}
+  .bag__catch{font-size:20px}
+  .price__was{font-size:17px}
+  .price__now b{font-size:68px}
+  .price__now small{font-size:26px}
+  .price__now i{width:58px;height:58px;font-size:15px}
+  .voice__txt{font-size:16px}
+  .ways{grid-template-columns:minmax(0,1fr);gap:8px}
+  .ways li{padding:12px 10px}
+  .ways li p{font-size:18px;margin-top:6px}
+  .ways li small{font-size:15px}
+  .week li{font-size:15px}
+  .gift__pre{font-size:7vw}
+  .off{font-size:84px}
+  .btn{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){.fv__stamp,.box.is-in .box__card{animation:none;opacity:1}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hd">
+    <a href="https://www.rakuten.co.jp/kawasui/"><img src="images/logo-kawasui.png" alt="うなぎ屋かわすい" width="960" height="160"></a>
+    <p>うなぎで、うれしいをつくる。</p>
+  </header>
+
+  <!-- ===== FV ===== -->
+  <section class="fv">
+    <p class="fv__pre">スタッフ<b>4</b>名による</p>
+    <h1 class="fv__ttl"><span class="r">幸せ福袋</span><span class="k">総選挙！</span></h1>
+    <p class="fv__stamp"><span>みなさんの<br>一票で<br><b>No.1</b>が<br>決まります！</span></p>
+
+    <p class="fv__q">どんな福袋なら、<br>お客様に<span class="uline">一番喜んでもらえる</span>だろう？</p>
+    <p class="fv__q2">スタッフ4名、考えました。</p>
+
+    <ul class="think">
+      <li>
+        <p class="bubble">忙しい日も、うなぎを楽しんでほしい…</p>
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="who"><b>A</b>雑賀<small>楽天市場店長</small></p>
+      </li>
+      <li>
+        <p class="bubble">いろんな食べ方を見つけてほしい…</p>
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="who"><b>B</b>山本<small>卸し販売部 営業担当</small></p>
+      </li>
+      <li>
+        <p class="bubble">毎日の献立の悩みを軽くしたい…</p>
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="who"><b>C</b>江川<small>受注担当</small></p>
+      </li>
+      <li>
+        <p class="bubble">見た目から大満足してほしい…</p>
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="who"><b>D</b>小林<small>出荷担当</small></p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 開催期間（日程が決まったら差し替え） -->
+  <div class="term">
+    <p class="term__l">開催期間</p>
+    <p class="term__d">20XX.XX.XX（X）〜 XX.XX（X）</p>
+    <p class="term__s">1か月限定。この機会に、ぜひご参加ください。</p>
+  </div>
+
+  <!-- ===== 4つの福袋（一覧） ===== -->
+  <section class="sec" id="list">
+    <h2 class="h2"><b>4</b>人の答えが、<br><span class="uline"><b>4</b>つの福袋</span>になりました。</h2>
+    <p class="lead">それぞれの想いから生まれた4つの「幸せ福袋」。どの福袋が、いちばん喜んでもらえるでしょうか？</p>
+    <ul class="list">
+      <li><a href="#bag-a"><div class="ph ph--item"><span>商品写真</span></div><p class="lt"><b>A</b><span>時短で楽ちん福袋</span></p><span class="by">楽天市場店長 雑賀</span><span class="pr">6,980<small>円</small></span></a></li>
+      <li><a href="#bag-b"><div class="ph ph--item"><span>商品写真</span></div><p class="lt"><b>B</b><span>食べ尽くせ！うなぎ七変化福袋</span></p><span class="by">営業担当 山本</span><span class="pr">11,500<small>円</small></span></a></li>
+      <li><a href="#bag-c"><div class="ph ph--item"><span>商品写真</span></div><p class="lt"><b>C</b><span>1週間の主役はこれで決まり！福袋</span></p><span class="by">受注担当 江川</span><span class="pr">12,960<small>円</small></span></a></li>
+      <li><a href="#bag-d"><div class="ph ph--item"><span>商品写真</span></div><p class="lt"><b>D</b><span>おすすめボリューム福袋</span></p><span class="by">出荷担当 小林</span><span class="pr">16,000<small>円</small></span></a></li>
+    </ul>
+  </section>
+
+  <!-- ===== A 雑賀 ===== -->
+  <section class="bag" id="bag-a">
+    <div class="bag__head"><span class="bag__letter">A</span><h2 class="bag__ttl">時短で<br>楽ちん福袋</h2></div>
+    <p class="bag__catch">忙しい日のごはんに。<br>温めるだけで、<span class="uline">うなぎのごちそう。</span></p>
+    <div class="ph ph--item bag__img"><span>商品写真（撮影予定）<small>蒲焼きカット・きざみうなぎ・焼きおにぎり</small></span></div>
+    <div class="bag__body">
+      <div class="inbox">
+        <p class="inbox__l">福袋の中身</p>
+        <ul>
+          <li>蒲焼きカット6枚セット<br>（2切れ100g×3袋）</li>
+          <li>きざみうなぎ 75g×2食</li>
+          <li>うなぎの焼きおにぎり×4個</li>
+        </ul>
+      </div>
+      <div class="price">
+        <p class="price__was">約<b>10,500</b>円相当が</p>
+        <p class="price__now"><i>特別<br>価格</i><b>6,980</b><small>円</small></p>
+        <p class="price__tax">税込</p>
+      </div>
+      <div class="voice">
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="voice__by"><small>楽天市場店長</small>雑賀のひとこと</p>
+        <div class="voice__txt">
+          <q>夕飯を作る時間がない日に、<br>重宝する3品です。</q>
+          蒲焼きカットは温めてごはんにのせるだけでうな丼に。きざみうなぎはお茶をかけてさっとお茶漬けに。小腹がすいたら、焼きおにぎりを1個温めればすぐ食べられます。包丁いらずで、その日の気分やお腹のすき具合に合わせて楽しめます。
+        </div>
+      </div>
+      <a class="btn" href="#" data-todo="福袋Aの商品URL">この福袋に一票（購入する）</a>
+    </div>
+  </section>
+
+  <!-- ===== B 山本 ===== -->
+  <section class="bag" id="bag-b">
+    <div class="bag__head"><span class="bag__letter">B</span><h2 class="bag__ttl">食べ尽くせ！<br>うなぎ七変化福袋</h2></div>
+    <p class="bag__catch">うなぎは自由な食べ物！<br>あなたの<span class="uline">「推し食べ方」</span>を見つけて。</p>
+    <div class="ph ph--item bag__img"><span>商品写真（撮影予定）<small>蒲焼きカット・白焼きカット・薬味4種</small></span></div>
+    <div class="bag__body">
+      <div class="inbox">
+        <p class="inbox__l">福袋の中身</p>
+        <ul>
+          <li>蒲焼きカット 80g×6枚</li>
+          <li>白焼きカット 80g×4枚</li>
+          <li>薬味の小袋<br>きざみわさび20・たれ10・ポン酢4・山椒10</li>
+        </ul>
+      </div>
+      <p class="ways-ttl">組み合わせ次第で、食べ方は無限大</p>
+      <ul class="ways">
+        <li><b>王道</b><p>蒲焼き×たれ×山椒</p><small>まずはここから。定番の味わい。</small></li>
+        <li><b>さっぱり</b><p>白焼き×ポン酢</p><small>脂ののった白焼きをさっぱりと。</small></li>
+        <li><b>通好み</b><p>白焼き×わさび×塩</p><small>塩で引き立つうなぎの甘み。<br>※塩はご家庭でご用意ください</small></li>
+        <li class="oshi"><b>山本の推し！</b><p>蒲焼き×たれ×わさび</p><small>たれにわさびを溶いて、うな丼に。ネギもあれば最高！</small></li>
+      </ul>
+      <div class="price">
+        <p class="price__was">約<b>16,000</b>円相当が</p>
+        <p class="price__now"><i>特別<br>価格</i><b>11,500</b><small>円</small></p>
+        <p class="price__tax">税込</p>
+      </div>
+      <div class="voice">
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="voice__by"><small>卸し販売部 営業担当</small>山本のひとこと</p>
+        <div class="voice__txt">
+          <q>あなたの「推し食べ方」を<br>見つけてください！</q>
+          蒲焼き6切・白焼き4切に、たれ・山椒・わさび・ポン酢をセットにしました。組み合わせ次第で、うなぎの食べ方はいくらでも広がります。
+        </div>
+      </div>
+      <a class="btn" href="#" data-todo="福袋Bの商品URL">この福袋に一票（購入する）</a>
+    </div>
+  </section>
+
+  <!-- ===== C 江川 ===== -->
+  <section class="bag" id="bag-c">
+    <div class="bag__head"><span class="bag__letter">C</span><h2 class="bag__ttl">1週間の主役は<br>これで決まり！福袋</h2></div>
+    <p class="bag__catch">「今日、何食べたい？」<br>「なんでもいいよ〜！」<br>…それが<span class="uline">一番困るのよ！</span></p>
+    <div class="ph ph--item bag__img"><span>商品写真（撮影予定）<small>蒲焼きカット・鮭・さば・ラーメン・海苔・しらす・焼きおにぎり</small></span></div>
+    <div class="bag__body">
+      <div class="inbox">
+        <p class="inbox__l">福袋の中身</p>
+        <ul>
+          <li>蒲焼きカット 500g×1袋</li>
+          <li>塩サバ 4切れ×1袋（合計200g）</li>
+          <li>甘塩鮭 3切れ×1袋（合計230g）</li>
+          <li>和歌山ラーメン×3食</li>
+          <li>焼き海苔 10枚入り×1袋</li>
+          <li>釜揚げしらす×2パック</li>
+          <li>うなぎの焼きおにぎり×2個</li>
+        </ul>
+      </div>
+      <p class="ways-ttl">たとえば、こんな1週間</p>
+      <ul class="week">
+        <li><b>今日は</b>贅沢に<br>うな丼</li>
+        <li><b>明日は</b>鮭を焼いて<br>定食に</li>
+        <li><b>気分を変えて</b>ラーメンと<br>しらす丼</li>
+      </ul>
+      <div class="price">
+        <p class="price__was">約<b>17,000</b>円相当が</p>
+        <p class="price__now"><i>特別<br>価格</i><b>12,960</b><small>円</small></p>
+        <p class="price__tax">税込　「イーフク・クローゼロ」にちなんだ価格です</p>
+      </div>
+      <div class="voice">
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="voice__by"><small>受注担当</small>江川のひとこと</p>
+        <div class="voice__txt">
+          <q>食べ盛り3人の子どもを育てる<br>主婦が選びました！</q>
+          主役はかわすい自慢の国産うなぎ。鮭やさば、和歌山ラーメン、しらす、焼きおにぎりに、普段はなかなか手が伸びないちょっといい焼き海苔も入れちゃいました。焼くだけ、のせるだけ、組み合わせるだけで、毎日のごはん作りがちょっと楽しく、ちょっとラクに。
+        </div>
+      </div>
+      <a class="btn" href="#" data-todo="福袋Cの商品URL">この福袋に一票（購入する）</a>
+    </div>
+  </section>
+
+  <!-- ===== D 小林 ===== -->
+  <section class="bag" id="bag-d">
+    <div class="bag__head"><span class="bag__letter">D</span><h2 class="bag__ttl">おすすめ<br>ボリューム福袋</h2></div>
+    <p class="bag__catch">見た目からして大満足。<br><span class="uline">ふっくら肉厚</span>のメガサイズ。</p>
+    <div class="ph ph--item bag__img"><span>商品写真（撮影予定）<small>長焼きメガサイズ・きざみ・蒸し牡蠣</small></span></div>
+    <div class="bag__body">
+      <div class="inbox">
+        <p class="inbox__l">福袋の中身</p>
+        <ul>
+          <li>長焼きメガサイズ 230g×4本</li>
+          <li>きざみ 100g×2食</li>
+          <li>蒸し牡蠣 500g×1袋</li>
+        </ul>
+      </div>
+      <div class="price">
+        <p class="price__was">約<b>20,500</b>円相当が</p>
+        <p class="price__now"><i>特別<br>価格</i><b>16,000</b><small>円</small></p>
+        <p class="price__tax">税込</p>
+      </div>
+      <div class="voice">
+        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="voice__by"><small>出荷担当</small>小林のひとこと</p>
+        <div class="voice__txt">
+          <q>見た目も食べ応えも、<br>自慢の福袋です。</q>
+          ふっくら肉厚で贅沢感間違いなしのうなぎを、皆さんに食べてほしいと思い選びました。そして、僕自身が大好きな蒸し牡蠣も一緒に。ぜひご賞味あれ！
+        </div>
+      </div>
+      <a class="btn" href="#" data-todo="福袋Dの商品URL">この福袋に一票（購入する）</a>
+    </div>
+  </section>
+
+  <!-- ===== 購入が一票に ===== -->
+  <section class="sec vote" id="vote">
+    <h2 class="h2">購入が、<br><span class="uline">そのまま一票に。</span></h2>
+    <div class="box" id="ballot" aria-hidden="true">
+      <span class="box__card">一票</span>
+      <svg viewBox="0 0 260 150">
+        <path d="M20 40 L240 40 L240 146 L20 146 Z" fill="#fff" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M20 40 L56 8 L204 8 L240 40" fill="#f6f2ea" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round"/>
+        <rect x="90" y="18" width="80" height="10" rx="3" fill="#1b1b1b"/>
+        <text x="130" y="88" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="900" font-size="15" fill="#1b1b1b" letter-spacing="2">かわすい</text>
+        <text x="130" y="118" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-weight="900" font-size="22" fill="#d8231b" letter-spacing="2">福袋総選挙</text>
+      </svg>
+    </div>
+    <p class="vote__txt"><span>4つの福袋を<b>1か月限定</b>で販売。</span><span>買っていただくことで、その福袋に<b>投票したこと</b>になります。</span><span>期間中は途中経過もお知らせします。</span><span>どの福袋が選ばれるのか、一緒に楽しみましょう！</span></p>
+    <div class="board">
+      <p class="board__l">途中経過</p>
+      <p class="board__s">期間中、こちらで順位を発表します</p>
+      <ol>
+        <li><b>1<small>位</small></b><span>発表をお楽しみに</span></li>
+        <li><b>2<small>位</small></b><span>発表をお楽しみに</span></li>
+        <li><b>3<small>位</small></b><span>発表をお楽しみに</span></li>
+        <li><b>4<small>位</small></b><span>発表をお楽しみに</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== おまけの抽選 ===== -->
+  <section class="gift" id="gift">
+    <p class="gift__pre">そして、最後に<br><span class="uline">ちょっとだけ。</span></p>
+    <div class="gift__card">
+      <p><span class="uline">No.1に選ばれた福袋</span>を<br>ご購入いただいた方の中から</p>
+      <p>抽選で<span class="n">5</span>名様に</p>
+      <div class="gift__off">
+        <span class="l">次回使える</span>
+        <span class="off"><b>5,000</b><span class="off__u"><i class="y">円</i><i class="o">OFF</i></span></span>
+        <span class="cp">クーポンを進呈！</span>
+      </div>
+    </div>
+    <p class="gift__note">あなたが選んだ福袋が1位になるか、最後までお楽しみください。<br>※当選のご連絡方法・クーポンの利用条件は決まり次第掲載します。</p>
+  </section>
+
+  <!-- ===== 目指すこと ===== -->
+  <section class="aim">
+    <h2 class="aim__ttl">この企画で目指すこと</h2>
+    <p class="aim__txt"><span>福袋を売ることだけが目的ではありません。</span><span>スタッフ自身がお客様のことを考え、<b>「どうしたら喜んでもらえるだろう？」</b>から商品をつくりました。</span><span>お客様に選んでいただいた結果は、次の商品づくりに活かしていきます。</span><span><b>かわすいとお客様が、一緒に作る福袋企画です。</b></span></p>
+    <a class="btn btn--ink" href="#list">4つの幸せ福袋を見てみる</a>
+  </section>
+
+  <footer class="foot">
+    <a href="https://www.rakuten.co.jp/kawasui/"><img src="images/logo-kawasui.png" alt="うなぎ屋かわすい" width="960" height="160" loading="lazy"></a>
+    <p>うなぎで、うれしいをつくる。</p>
+  </footer>
+</div>
+
+<script>
+// 投票箱：見えたら一票が入るアニメーションを始める
+(function(){
+  var box = document.getElementById('ballot');
+  if (!box) return;
+  if (!('IntersectionObserver' in window)) { box.classList.add('is-in'); return; }
+  new IntersectionObserver(function(es, ob){
+    es.forEach(function(e){ if (e.isIntersecting) { box.classList.add('is-in'); ob.disconnect(); } });
+  }, {threshold:.4}).observe(box);
+})();
+</script>
+</body>
+</html>
