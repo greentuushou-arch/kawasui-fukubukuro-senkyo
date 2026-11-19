@@ -162,20 +162,7 @@ section[id]{scroll-margin-top:60px}
 .box svg{position:absolute;left:0;bottom:0;width:100%;height:auto}
 .vote__txt{margin-top:16px;font-size:17px;line-height:1.75}
 .vote__txt b{color:var(--red)}
-.board{margin-top:20px;padding:18px 16px 16px;background:var(--ink);color:#fff;border-radius:12px}
-.board__l{font-weight:900;font-size:20px;letter-spacing:.06em}
-.board__s{font-size:15px;color:#d9d2c6}
-.board ol{display:grid;gap:8px;margin-top:14px}
-.board li{display:flex;align-items:center;gap:14px;padding:10px 16px;background:#2c2a28;border-radius:8px;text-align:left}
-.board li b{font-family:var(--num);font-weight:700;font-size:30px;line-height:1;color:#f1c84b;min-width:58px}
-.board li b small{font-family:var(--goth);font-size:16px}
-.board li span{font-weight:900;font-size:17px;color:#bdb5a8;white-space:nowrap}
-.board li i{font-style:normal;font-family:var(--num);font-weight:700;font-size:20px;letter-spacing:.1em;color:#fff;margin-left:auto;animation:blink 1.4s steps(2) infinite}
-@keyframes blink{50%{opacity:.25}}
-.board li{position:relative;overflow:hidden}
-.board li::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);transform:translateX(-100%);animation:sweep 2.6s ease-in-out infinite}
-.board li:nth-child(2)::after{animation-delay:.25s}.board li:nth-child(3)::after{animation-delay:.5s}.board li:nth-child(4)::after{animation-delay:.75s}
-@keyframes sweep{60%,100%{transform:translateX(100%)}}
+
 
 /* ---------- おまけの抽選 ---------- */
 .gift{position:relative;isolation:isolate;overflow:hidden;padding:36px 20px 34px;text-align:center}
@@ -269,11 +256,9 @@ section[id]{scroll-margin-top:60px}
 /* ========== PC：両脇レール（家具のソムリエBF型） ========== */
 .side{display:none}
 @media (min-width:1180px){
-  body{background:
-    radial-gradient(circle at 50% 50%,rgba(255,255,255,0) 0 30%,rgba(120,8,4,.35) 100%),
-    repeating-conic-gradient(from 0deg at 50% 50%,#d8231b 0 6deg,#cc1f17 6deg 12deg) fixed;
-    background-attachment:fixed}
-  .page{position:relative;z-index:3;box-shadow:0 0 0 6px var(--ink),0 0 60px rgba(0,0,0,.35)}
+  body{background:var(--stage) fixed}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:var(--flare)}
+  .page{position:relative;z-index:3;box-shadow:0 0 0 3px #b77cff,0 0 50px rgba(170,90,255,.55)}
   .side{display:flex;overflow-y:auto;scrollbar-width:none;position:fixed;top:0;bottom:0;width:calc(50% - var(--col)/2);align-items:center;justify-content:center;padding:24px 28px;color:#fff;z-index:2}
   .side-l{left:0}.side-r{right:0}
   .side-in{width:100%;max-width:260px;text-align:center}
@@ -322,6 +307,85 @@ section[id]{scroll-margin-top:60px}
   .side-gift .off{font-size:46px}
 }
 
+
+/* ===== 昭和の歌番組ランキング風ステージ ===== */
+:root{
+  --stage:radial-gradient(ellipse 80% 18% at 50% 44%,rgba(165,75,255,.62),rgba(105,35,210,.26) 46%,transparent 72%),radial-gradient(ellipse at 50% 40%,#1c0e38 0%,#08040f 64%,#020106 100%);
+  --flare:linear-gradient(33deg,transparent calc(50% - 9px),rgba(255,120,220,.12) calc(50% - 3px),rgba(255,225,248,.95) 50%,rgba(255,120,220,.12) calc(50% + 3px),transparent calc(50% + 9px)),
+          linear-gradient(-33deg,transparent calc(50% - 9px),rgba(255,120,220,.12) calc(50% - 3px),rgba(255,225,248,.95) 50%,rgba(255,120,220,.12) calc(50% + 3px),transparent calc(50% + 9px));
+}
+.stage{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:var(--flare)}
+.bokeh{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bokeh i{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,244,250,.6),rgba(255,205,240,.22) 52%,transparent 70%);animation:twinkle var(--d,5s) ease-in-out infinite}
+.bokeh i.s{border-radius:0;background:radial-gradient(circle,#fff 0 1.5px,transparent 2.5px),linear-gradient(90deg,transparent 46%,rgba(255,255,255,.95) 50%,transparent 54%),linear-gradient(0deg,transparent 46%,rgba(255,255,255,.95) 50%,transparent 54%)}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.08)}}
+
+.fv{background:var(--stage);color:#fff;padding-top:34px}
+.fv__q{color:#fff}
+.fv__q2{color:#cdbfe9}
+.think .who{color:#fff}
+.think .bubble{color:var(--ink)}
+.think .who small{color:#cdbfe9}
+
+/* タイトル文字：太い斜体の白文字＋ピンク紫の光 */
+.bt{position:relative;font-family:var(--heavy);font-weight:400;color:#fff;line-height:1;text-align:center}
+.bt>span{display:block;transform:skewX(-12deg);text-shadow:0 0 2px #fff,0 0 12px rgba(255,150,232,.85),0 0 30px rgba(160,85,255,.75),4px 4px 0 #5b22c2}
+.bt__pre{font-size:30px;letter-spacing:.08em;color:#ffe9a8}
+.bt__pre b{font-family:var(--num);font-weight:700;font-size:1.45em;color:var(--gold);margin:0 .04em}
+.bt__main{margin-top:8px;font-size:100px;letter-spacing:-.01em}
+.bt__sub{margin-top:4px;font-size:112px;letter-spacing:-.01em}
+.bt__sub em{font-style:normal;color:#ff8ad8}
+.fv .bt>span{animation:glowin 1.1s cubic-bezier(.2,.9,.3,1.2) both}
+.fv .bt__main{animation-delay:.15s!important}.fv .bt__sub{animation-delay:.3s!important}
+@keyframes glowin{0%{opacity:0;transform:skewX(-12deg) scale(1.5);filter:blur(10px)}100%{opacity:1;transform:skewX(-12deg) scale(1);filter:blur(0)}}
+.bt::after{content:"";position:absolute;right:6%;top:30%;width:34px;height:34px;background:radial-gradient(circle,#fff 0 2px,transparent 3px),linear-gradient(90deg,transparent 47%,#fff 50%,transparent 53%),linear-gradient(0deg,transparent 47%,#fff 50%,transparent 53%);animation:twinkle 2.4s ease-in-out infinite}
+.bt__catch{display:table;margin:16px auto 0;padding:6px 18px;border-top:2px solid rgba(255,190,245,.6);border-bottom:2px solid rgba(255,190,245,.6);font-weight:900;font-size:20px;letter-spacing:.08em;color:#f6d2ff}
+.bt__catch b{font-family:var(--num);font-weight:700;font-size:1.5em;color:var(--gold);margin:0 .08em;vertical-align:-.06em}
+
+/* 購入が一票に：ステージの上で */
+.vote{position:relative;isolation:isolate;overflow:hidden;background:var(--stage);color:#fff}
+.vote .h2{color:#fff;text-shadow:0 0 14px rgba(255,140,230,.7)}
+.vote__txt{color:#ece6f7}
+.vote__txt b{color:var(--gold)}
+
+/* パタパタ掲示板（反転フラップ式） */
+.board{margin-top:20px;padding:16px 12px 14px;background:#0a0a0a;border:6px solid #2b2b2b;border-radius:10px;box-shadow:0 0 0 2px #5c5c5c,0 12px 30px rgba(0,0,0,.6),inset 0 0 30px #000;color:#fff}
+.board__l{font-weight:900;font-size:22px;letter-spacing:.08em;text-shadow:0 0 10px rgba(255,140,230,.7)}
+.board__l span{color:var(--gold)}
+.board__s{margin-top:2px;font-size:15px;color:#a9a1b8}
+.board__head,.board__rows li{display:grid;grid-template-columns:54px 42px minmax(0,1fr);gap:6px;align-items:center}
+.board__head{margin-top:12px;font-weight:700;font-size:14px;color:#8f879e}
+.board__rows li{margin-top:8px}
+.flaps{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:2px}
+.flap{position:relative;display:grid;place-items:center;height:44px;background:linear-gradient(#2c2c2c 0 50%,#1b1b1b 50%);border-radius:4px;color:#f5f1e6;font-weight:900;font-size:20px;line-height:1;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 2px 0 #000;overflow:hidden}
+.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:#000}
+.flap--rank{height:52px;font-family:var(--num);font-weight:700;font-size:34px;color:var(--gold)}
+.flap--rank small{font-family:var(--goth);font-weight:900;font-size:14px;margin:12px 0 0 1px}
+.flap--rank{display:flex;align-items:center;justify-content:center}
+.flap--ltr{font-family:var(--num);font-weight:700;font-size:26px;color:#ff8ad8}
+.board__rows li:first-child .flap--rank{box-shadow:0 0 0 2px var(--gold),0 0 14px rgba(245,184,0,.55)}
+.flap.is-flip{animation:flip .08s linear}
+@keyframes flip{0%{transform:scaleY(1)}50%{transform:scaleY(.06)}100%{transform:scaleY(1)}}
+
+/* PC左レールのタイトル */
+.bt--side{margin-top:14px}
+.bt--side .bt__pre{font-size:17px}
+.bt--side .bt__main{margin-top:6px;font-size:clamp(40px,3.6vw,52px)}
+.bt--side .bt__sub{font-size:clamp(44px,3.9vw,56px)}
+.bt--side::after{width:22px;height:22px;right:0;top:24%}
+@media (max-width:480px){
+  .fv{padding-top:26px}
+  .bt__pre{font-size:6.6vw}
+  .bt__main{font-size:21vw}
+  .bt__sub{font-size:22.5vw}
+  .bt__catch{font-size:17px;padding:5px 12px}
+  .board{padding:14px 8px 12px;border-width:5px}
+  .board__head,.board__rows li{grid-template-columns:46px 34px minmax(0,1fr);gap:4px}
+  .flap{height:40px;font-size:17px}
+  .flap--rank{height:46px;font-size:30px}
+  .flap--ltr{font-size:22px}
+}
+
 /* ---------- スマホ ---------- */
 @media (max-width:480px){
   body{font-size:16px}
@@ -358,8 +422,6 @@ section[id]{scroll-margin-top:60px}
   .ways li small{font-size:15px}
   .week li{font-size:15px}
   .ways-ttl{font-size:19px}
-  .board li{gap:10px;padding:10px 12px}
-  .board li b{min-width:50px}
   .gift__pre{font-size:6.6vw}
   .off{font-size:84px}
   .btn{font-size:18px}
@@ -370,10 +432,10 @@ section[id]{scroll-margin-top:60px}
 <body>
 <!-- ===== PC 左レール：ページ内メニュー ===== -->
 <aside class="side side-l" aria-label="ページ内メニュー">
-  <span class="confetti" aria-hidden="true"></span>
+  <span class="bokeh" aria-hidden="true"></span>
   <div class="side-in">
     <a class="side__logo" href="https://www.rakuten.co.jp/kawasui/"><img src="images/logo-kawasui.png" alt="うなぎ屋かわすい" width="960" height="160"></a>
-    <p class="side__logo2"><img src="images/fv-logo.webp" alt="スタッフ4名による 幸せ福袋総選挙！" width="1475" height="964" loading="lazy"></p>
+    <p class="bt bt--side"><span class="bt__pre">スタッフ<b>4</b>名による</span><span class="bt__main">幸せ福袋</span><span class="bt__sub">総選挙<em>！</em></span></p>
     <p class="side__date">開催期間<br><b>20XX.XX.XX</b> 〜 <b>XX.XX</b></p>
     <nav class="guide">
       <a href="#list"><span>4</span>4つの福袋を見る</a>
@@ -389,7 +451,7 @@ section[id]{scroll-margin-top:60px}
 
 <!-- ===== PC 右レール：候補者4名（写真）と抽選 ===== -->
 <aside class="side side-r" aria-label="エントリー4名と抽選">
-  <span class="confetti" aria-hidden="true"></span>
+  <span class="bokeh" aria-hidden="true"></span>
   <div class="side-in">
     <p class="side-r__ttl">エントリー4名</p>
     <div class="cand">
@@ -415,8 +477,9 @@ section[id]{scroll-margin-top:60px}
 
   <!-- ===== FV ===== -->
   <section class="fv">
-    <span class="fv__rays" aria-hidden="true"></span><span class="confetti" aria-hidden="true"></span>
-    <h1 class="fv__logo"><img src="images/fv-logo.webp" alt="スタッフ4名による 幸せ福袋総選挙！ みなさんの一票でNo.1が決まります！" width="1475" height="964"></h1>
+    <span class="stage" aria-hidden="true"></span><span class="bokeh" aria-hidden="true"></span>
+    <h1 class="bt"><span class="bt__pre">スタッフ<b>4</b>名による</span><span class="bt__main">幸せ福袋</span><span class="bt__sub">総選挙<em>！</em></span></h1>
+    <p class="bt__catch"><span class="nw">みなさんの一票で</span><span class="nw"><b>No.1</b>が決まります！</span></p>
 
     <p class="fv__q">どんな福袋なら、お客様に<span class="uline">一番喜んでもらえる</span>だろう？</p>
     <p class="fv__q2">スタッフ4名、考えました。</p>
@@ -611,6 +674,7 @@ section[id]{scroll-margin-top:60px}
 
   <!-- ===== 購入が一票に ===== -->
   <section class="sec vote" id="vote">
+    <span class="stage" aria-hidden="true"></span><span class="bokeh" aria-hidden="true"></span>
     <h2 class="h2">購入が、<br><span class="uline">そのまま一票に。</span></h2>
     <div class="box" id="ballot" aria-hidden="true">
       <span class="box__card">一票</span>
@@ -623,14 +687,15 @@ section[id]{scroll-margin-top:60px}
       </svg>
     </div>
     <p class="vote__txt">4つの福袋を<b>1か月限定</b>で販売。買っていただくことで、その福袋に<b>投票したこと</b>になります。期間中は途中経過もお知らせします。どの福袋が選ばれるのか、一緒に楽しみましょう！</p>
-    <div class="board">
-      <p class="board__l">途中経過</p>
-      <p class="board__s">期間中、こちらで順位を発表します</p>
-      <ol>
-        <li><b>1<small>位</small></b><span>発表をお楽しみに</span><i>？？？</i></li>
-        <li><b>2<small>位</small></b><span>発表をお楽しみに</span><i>？？？</i></li>
-        <li><b>3<small>位</small></b><span>発表をお楽しみに</span><i>？？？</i></li>
-        <li><b>4<small>位</small></b><span>発表をお楽しみに</span><i>？？？</i></li>
+    <div class="board" id="board">
+      <p class="board__l">福袋ランキング <span>途中経過</span></p>
+      <p class="board__s">期間中、この掲示板で順位を発表します</p>
+      <div class="board__head" aria-hidden="true"><span>順位</span><span>福袋</span><span>福袋名</span></div>
+      <ol class="board__rows">
+        <li><span class="flap flap--rank">1<small>位</small></span><span class="flap flap--ltr">？</span><span class="flaps"><span class="flap">発</span><span class="flap">表</span><span class="flap">を</span><span class="flap">お</span><span class="flap">楽</span><span class="flap">し</span><span class="flap">み</span><span class="flap">に</span></span></li>
+        <li><span class="flap flap--rank">2<small>位</small></span><span class="flap flap--ltr">？</span><span class="flaps"><span class="flap">発</span><span class="flap">表</span><span class="flap">を</span><span class="flap">お</span><span class="flap">楽</span><span class="flap">し</span><span class="flap">み</span><span class="flap">に</span></span></li>
+        <li><span class="flap flap--rank">3<small>位</small></span><span class="flap flap--ltr">？</span><span class="flaps"><span class="flap">発</span><span class="flap">表</span><span class="flap">を</span><span class="flap">お</span><span class="flap">楽</span><span class="flap">し</span><span class="flap">み</span><span class="flap">に</span></span></li>
+        <li><span class="flap flap--rank">4<small>位</small></span><span class="flap flap--ltr">？</span><span class="flaps"><span class="flap">発</span><span class="flap">表</span><span class="flap">を</span><span class="flap">お</span><span class="flap">楽</span><span class="flap">し</span><span class="flap">み</span><span class="flap">に</span></span></li>
       </ol>
     </div>
   </section>
@@ -690,6 +755,60 @@ section[id]{scroll-margin-top:60px}
       c.appendChild(e);
     }
   });
+})();
+
+// ボケ光と星（FV・投票・PCレール）
+(function(){
+  [].forEach.call(document.querySelectorAll('.bokeh'), function(c){
+    var n = c.parentNode.classList.contains('side') ? 12 : 16;
+    for (var i = 0; i < n; i++) {
+      var e = document.createElement('i'), star = i % 3 === 0, z = star ? 10 + Math.random() * 10 : 18 + Math.random() * 56;
+      if (star) e.className = 's';
+      e.style.cssText = 'width:' + z + 'px;height:' + z + 'px;left:' + (Math.random() * 96) + '%;top:' + (Math.random() * 94) + '%;--d:' + (3 + Math.random() * 4) + 's;animation-delay:' + (-Math.random() * 6) + 's';
+      c.appendChild(e);
+    }
+  });
+})();
+
+// ===== 途中経過のパタパタ掲示板 =====
+// 順位が決まったら RANKING に 1位から順に A〜D を入れる（例：['C','A','D','B']）。
+// 空のままなら「発表をお楽しみに」を表示。確認用に、URLの末尾に ?rank=CADB を付けるとその順位で表示されます。
+var RANKING = [];
+(function(){
+  var NAMES = {A:'時短で楽ちん福袋', B:'うなぎ七変化福袋', C:'1週間の主役福袋', D:'ボリューム福袋'};
+  var WAIT = '発表をお楽しみに';
+  var POOL = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモラリルレロ福袋幸選挙票';
+  var q = (location.search.match(/[?&]rank=([ABCD]{1,4})/i) || [])[1];
+  var order = q ? q.toUpperCase().split('') : RANKING;
+  var board = document.getElementById('board');
+  if (!board) return;
+  var rows = board.querySelectorAll('.board__rows li');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function pad(t){ t = t.split(''); while (t.length < 8) t.push('　'); return t.slice(0, 8); }
+  function flip(el, text, times){
+    if (reduce) { el.textContent = text; return; }
+    var k = 0;
+    (function step(){
+      el.classList.remove('is-flip'); void el.offsetWidth; el.classList.add('is-flip');
+      el.textContent = k < times ? POOL.charAt(Math.floor(Math.random() * POOL.length)) : text;
+      if (k++ < times) setTimeout(step, 70);
+    })();
+  }
+  var busy = false;
+  function run(){
+    if (busy) return; busy = true;
+    [].forEach.call(rows, function(li, r){
+      var ltr = order[r] || '';
+      var name = ltr && NAMES[ltr] ? NAMES[ltr] : WAIT;
+      setTimeout(function(){
+        flip(li.querySelector('.flap--ltr'), ltr || '？', 6);
+        pad(name).forEach(function(ch, c){ flip(li.querySelectorAll('.flaps .flap')[c], ch, 5 + c); });
+      }, r * 450);
+    });
+    setTimeout(function(){ busy = false; }, 4000);
+  }
+  if (!('IntersectionObserver' in window)) { run(); return; }
+  new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) run(); }); }, {threshold:.35}).observe(board);
 })();
 </script>
 </body>
