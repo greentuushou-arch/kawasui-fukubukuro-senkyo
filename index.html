@@ -256,8 +256,8 @@ section[id]{scroll-margin-top:60px}
 /* ========== PC：両脇レール（家具のソムリエBF型） ========== */
 .side{display:none}
 @media (min-width:1180px){
-  body{background:radial-gradient(circle,rgba(255,214,120,.16) 0 1.6px,transparent 2.4px) 0 0/24px 24px,linear-gradient(165deg,#3a1030 0%,#1a0a24 45%,#0d1030 100%) fixed;background-attachment:fixed}
-  .page{position:relative;z-index:3;box-shadow:0 0 0 4px #ffd45a,0 0 0 8px #1a0a24,0 0 40px rgba(255,190,60,.35)}
+  body{background:radial-gradient(circle,rgba(255,214,120,.28) 0 1.6px,transparent 2.4px) 0 0/22px 22px,linear-gradient(165deg,#7d0a07 0%,#5c0605 55%,#3d0403 100%) fixed;background-attachment:fixed}
+  .page{position:relative;z-index:3;box-shadow:0 0 0 4px #ffd45a,0 0 0 8px #000,0 0 40px rgba(0,0,0,.45)}
   .side{display:flex;overflow-y:auto;scrollbar-width:none;position:fixed;top:0;bottom:0;width:calc(50% - var(--col)/2);align-items:center;justify-content:center;padding:24px 28px;color:#fff;z-index:2}
   .side-l{left:0}.side-r{right:0}
   .side-in{width:100%;max-width:260px;text-align:center}
@@ -309,8 +309,8 @@ section[id]{scroll-margin-top:60px}
 
 /* ===== 昭和の歌番組ランキング風ステージ ===== */
 :root{
-  --stage:radial-gradient(ellipse 85% 16% at 50% 46%,rgba(255,70,130,.42),rgba(110,45,230,.22) 48%,transparent 74%),radial-gradient(ellipse at 50% 38%,#170b2c 0%,#07040f 62%,#020106 100%);
-  --flare:conic-gradient(from 142deg at 0 0,transparent 0deg,rgba(255,236,190,.13) 6deg,rgba(255,236,190,.05) 14deg,transparent 18deg),conic-gradient(from 200deg at 100% 0,transparent 0deg,rgba(255,236,190,.05) 4deg,rgba(255,236,190,.13) 12deg,transparent 18deg);
+  --stage:radial-gradient(ellipse at 50% 22%,#ef3a2e 0%,#c8170f 48%,#8f0c08 100%);
+  --flare:repeating-conic-gradient(from 0deg at 50% 20%,rgba(255,255,255,.075) 0 5deg,transparent 5deg 10deg);
 }
 .stage{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:var(--flare)}
 .bokeh{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
@@ -390,6 +390,57 @@ section[id]{scroll-margin-top:60px}
   .flap--ltr{font-size:22px}
 }
 
+
+/* ===== v7：赤いお正月ステージ×4名が登場（パキッと） ===== */
+.stage{background:var(--flare)}
+.fv{padding-top:28px}
+.bt>span{transform:skewX(-6deg);text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,6px 6px 0 #000!important}
+.bt__pre{display:table!important;margin:0 auto;padding:4px 16px 6px;background:#000;color:#fff;text-shadow:none!important;font-size:28px}
+.bt__main{color:#ffe14d}
+.bt__sub em{color:#ffe14d}
+.bt::after{display:none}
+.fv .bt{display:block;padding:0;border:0;background:none;box-shadow:none;animation:none}
+.fv .bt>span{animation:slamt .38s cubic-bezier(.2,1.5,.4,1) both}
+.fv .bt__main{animation-delay:.12s!important}.fv .bt__sub{animation-delay:.24s!important}
+@keyframes slamt{0%{opacity:0;transform:skewX(-6deg) scale(1.8)}100%{opacity:1;transform:skewX(-6deg) scale(1)}}
+.bt__catch{margin-top:14px;padding:6px 20px;background:#000;border:0;color:#fff;font-size:20px}
+.fv__q{margin-top:22px;color:#fff;font-size:26px}
+.fv__q{word-break:auto-phrase}
+.fv__q b{color:#ffe14d;white-space:nowrap}
+.bt__catch{line-height:1.5}
+.fv__q2{color:#ffe0dc;font-weight:900}
+.lineup{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px;padding-bottom:30px}
+.lineup li{position:relative;animation:slam .42s cubic-bezier(.2,1.6,.4,1) both;animation-delay:calc(.55s + var(--i) * .2s)}
+.lineup a{display:block;height:100%;background:#fff;color:var(--ink);border:3px solid #000;box-shadow:5px 5px 0 #000;text-align:center;transition:transform .15s,box-shadow .15s}
+.lineup a:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 #000}
+.lineup li::after{content:"";position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;animation:flash .35s linear both;animation-delay:calc(.8s + var(--i) * .2s)}
+@keyframes slam{0%{opacity:0;transform:translateY(-70px) scale(1.25)}55%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes flash{0%{opacity:0}15%{opacity:.9}100%{opacity:0}}
+.lu__no{display:flex;align-items:center;justify-content:center;gap:6px;padding:4px 0 5px;background:#000;color:#fff;font-weight:900;font-size:14px;letter-spacing:.06em;line-height:1}
+.lu__no b{font-family:var(--num);font-weight:700;font-size:30px;line-height:.9;color:#ffe14d}
+.lu__ph{aspect-ratio:1;border:0;border-bottom:3px solid #000;overflow:hidden;align-content:end}
+.lu__ph svg{position:absolute;left:13%;bottom:-4px;width:74%;height:auto;fill:#cfc3b0}
+.lu__ph::after{content:"写真";position:absolute;left:0;right:0;top:10px;font-size:14px;color:#8a7c68}
+.lu__nm{padding:6px 4px 0;font-weight:900;font-size:22px;line-height:1.2}
+.lu__nm small{display:block;font-weight:700;font-size:14px;color:var(--sub);line-height:1.35}
+.lu__say{margin:6px 6px 8px;padding:6px 6px;background:var(--red);color:#fff;font-weight:900;font-size:14px;line-height:1.45;word-break:auto-phrase}
+.vote .h2{text-shadow:3px 3px 0 #000}
+.vote__txt b{color:#ffe14d}
+.term{background:#000;border-top:4px solid #ffe14d;border-bottom:4px solid #ffe14d}
+.term__l{border-color:#ffe14d;color:#ffe14d}
+.term__s{word-break:auto-phrase}
+@media (max-width:480px){
+  .bt__pre{font-size:6.4vw}
+  .bt__catch{font-size:16px;padding:5px 12px}
+  .bt__main{font-size:19.5vw}
+  .bt__sub{font-size:21vw}
+  .fv__q{font-size:6vw}
+  .lineup{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}
+  .lu__nm{font-size:21px}
+  .lu__ph{aspect-ratio:1}
+}
+@media (prefers-reduced-motion:reduce){.lineup li,.lineup li::after,.fv .bt>span{animation:none!important}}
+
 /* ---------- スマホ ---------- */
 @media (max-width:480px){
   body{font-size:16px}
@@ -436,7 +487,6 @@ section[id]{scroll-margin-top:60px}
 <body>
 <!-- ===== PC 左レール：ページ内メニュー ===== -->
 <aside class="side side-l" aria-label="ページ内メニュー">
-  <span class="bokeh" aria-hidden="true"></span>
   <div class="side-in">
     <a class="side__logo" href="https://www.rakuten.co.jp/kawasui/"><img src="images/logo-kawasui.png" alt="うなぎ屋かわすい" width="960" height="160"></a>
     <p class="bt bt--side"><span class="bt__pre">スタッフ<b>4</b>名による</span><span class="bt__main">幸せ福袋</span><span class="bt__sub">総選挙<em>！</em></span></p>
@@ -455,7 +505,6 @@ section[id]{scroll-margin-top:60px}
 
 <!-- ===== PC 右レール：候補者4名（写真）と抽選 ===== -->
 <aside class="side side-r" aria-label="エントリー4名と抽選">
-  <span class="bokeh" aria-hidden="true"></span>
   <div class="side-in">
     <p class="side-r__ttl">エントリー4名</p>
     <div class="cand">
@@ -481,34 +530,37 @@ section[id]{scroll-margin-top:60px}
 
   <!-- ===== FV ===== -->
   <section class="fv">
-    <span class="stage" aria-hidden="true"></span><span class="bokeh" aria-hidden="true"></span>
+    <span class="stage" aria-hidden="true"></span>
     <h1 class="bt"><span class="bt__pre">スタッフ<b>4</b>名による</span><span class="bt__main">幸せ福袋</span><span class="bt__sub">総選挙<em>！</em></span></h1>
     <p class="bt__catch"><span class="nw">みなさんの一票で</span><span class="nw"><b>No.1</b>が決まります！</span></p>
 
-    <p class="fv__q">どんな福袋なら、お客様に<span class="uline">一番喜んでもらえる</span>だろう？</p>
-    <p class="fv__q2">スタッフ4名、考えました。</p>
-
-    <ul class="think">
-      <li>
-        <p class="bubble">忙しい日も、うなぎを楽しんでほしい…</p>
-        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
-        <span class="entry">エントリーNo.A</span><p class="who">雑賀<small>楽天市場店長</small></p>
-      </li>
-      <li>
-        <p class="bubble">いろんな食べ方を見つけてほしい…</p>
-        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
-        <span class="entry">エントリーNo.B</span><p class="who">山本<small>卸し販売部 営業担当</small></p>
-      </li>
-      <li>
-        <p class="bubble">毎日の献立の悩みを軽くしたい…</p>
-        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
-        <span class="entry">エントリーNo.C</span><p class="who">江川<small>受注担当</small></p>
-      </li>
-      <li>
-        <p class="bubble">見た目から大満足してほしい…</p>
-        <div class="ph ph--face"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
-        <span class="entry">エントリーNo.D</span><p class="who">小林<small>出荷担当</small></p>
-      </li>
+    <p class="fv__q">どんな福袋なら、お客様に<b>一番喜んでもらえる</b>だろう？</p>
+    <p class="fv__q2">スタッフ4名が、本気で考えました。</p>
+    <ul class="lineup">
+      <li style="--i:0"><a href="#bag-a">
+        <p class="lu__no">エントリー<b>A</b></p>
+        <div class="ph lu__ph"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="lu__nm"><small>楽天市場店長</small>雑賀</p>
+        <p class="lu__say">忙しい日も、うなぎを楽しんでほしい</p>
+      </a></li>
+      <li style="--i:1"><a href="#bag-b">
+        <p class="lu__no">エントリー<b>B</b></p>
+        <div class="ph lu__ph"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="lu__nm"><small><span class="nw">卸し販売部</span> <span class="nw">営業担当</span></small>山本</p>
+        <p class="lu__say">いろんな食べ方を見つけてほしい</p>
+      </a></li>
+      <li style="--i:2"><a href="#bag-c">
+        <p class="lu__no">エントリー<b>C</b></p>
+        <div class="ph lu__ph"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="lu__nm"><small>受注担当</small>江川</p>
+        <p class="lu__say">毎日の献立の悩みを軽くしたい</p>
+      </a></li>
+      <li style="--i:3"><a href="#bag-d">
+        <p class="lu__no">エントリー<b>D</b></p>
+        <div class="ph lu__ph"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="34" r="22"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z"/></svg></div>
+        <p class="lu__nm"><small>出荷担当</small>小林</p>
+        <p class="lu__say">見た目から大満足してほしい</p>
+      </a></li>
     </ul>
   </section>
 
@@ -678,7 +730,7 @@ section[id]{scroll-margin-top:60px}
 
   <!-- ===== 購入が一票に ===== -->
   <section class="sec vote" id="vote">
-    <span class="stage" aria-hidden="true"></span><span class="bokeh" aria-hidden="true"></span>
+    <span class="stage" aria-hidden="true"></span>
     <h2 class="h2">購入が、<br><span class="uline">そのまま一票に。</span></h2>
     <div class="box" id="ballot" aria-hidden="true">
       <span class="box__card">一票</span>
