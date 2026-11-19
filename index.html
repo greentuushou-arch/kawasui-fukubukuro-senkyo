@@ -68,7 +68,7 @@ section[id]{scroll-margin-top:60px}
 .fv__stamp{position:absolute;right:6px;top:176px;display:grid;place-items:center;width:124px;height:124px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--hand);font-size:16px;line-height:1.35;transform:rotate(8deg);box-shadow:0 0 0 4px var(--paper),0 0 0 7px var(--red);animation:pop 3.2s ease-in-out infinite}
 .fv__stamp b{font-family:var(--num);font-weight:700;font-size:32px;line-height:1}
 @keyframes pop{0%,100%{transform:rotate(8deg) scale(1)}50%{transform:rotate(4deg) scale(1.06)}}
-.fv__q{margin-top:18px;font-family:var(--hand);font-size:28px;line-height:1.5;text-align:center}
+.fv__q{margin-top:10px;font-family:var(--hand);font-size:28px;line-height:1.5;text-align:center}
 .fv__q2{margin-top:4px;font-family:var(--hand);font-weight:700;font-size:20px;color:var(--sub)}
 .think{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 14px;margin-top:16px;padding-bottom:26px}
 .think li{display:flex;flex-direction:column;align-items:center}
@@ -263,7 +263,8 @@ section[id]{scroll-margin-top:60px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
 
-@media (min-width:481px){.fv__ttl{margin-right:70px}}
+.fv__logo{max-width:600px;margin:0 auto}
+.fv__logo img{width:100%;height:auto;animation:boing .9s cubic-bezier(.3,1.6,.5,1) both;filter:drop-shadow(0 4px 10px rgba(255,255,255,.9))}
 
 /* ========== PC：両脇レール（家具のソムリエBF型） ========== */
 .side{display:none}
@@ -414,9 +415,7 @@ section[id]{scroll-margin-top:60px}
   <!-- ===== FV ===== -->
   <section class="fv">
     <span class="fv__rays" aria-hidden="true"></span><span class="confetti" aria-hidden="true"></span>
-    <p class="fv__pre">スタッフ<b>4</b>名による</p>
-    <h1 class="fv__ttl"><span class="r">幸せ福袋</span><span class="k">総選挙<em>！</em></span></h1>
-    <p class="fv__stamp"><span>みなさんの<br>一票で<br><b>No.1</b>が<br>決まります！</span></p>
+    <h1 class="fv__logo"><img src="images/fv-logo.webp" alt="スタッフ4名による 幸せ福袋総選挙！ みなさんの一票でNo.1が決まります！" width="1475" height="964"></h1>
 
     <p class="fv__q">どんな福袋なら、お客様に<span class="uline">一番喜んでもらえる</span>だろう？</p>
     <p class="fv__q2">スタッフ4名、考えました。</p>
